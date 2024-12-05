@@ -1289,9 +1289,9 @@ static void gc_worker(struct work_struct *work)
 	 * increase scan frequency.
 	 */
 	ratio = scanned ? expired_count * 100 / scanned : 0;
-	if (ratio > GC_EVICT_RATIO) {
+	if (ratio > GC_EVICT_RATIO)
 		gc_work->next_gc_run = min_interval;
-	} else {
+	else {
 		unsigned int max = GC_MAX_SCAN_JIFFIES / GC_MAX_BUCKETS_DIV;
 
 		BUILD_BUG_ON((GC_MAX_SCAN_JIFFIES / GC_MAX_BUCKETS_DIV) == 0);
